@@ -1,35 +1,44 @@
 package com.packt.datastructuresandalg.lesson1.activity.octaltodecimal;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class OctalToDecimalTest extends TestCase {
-    public void testZeroOctal() {
-        OctalToDecimal octalToDecimal = new OctalToDecimal();
-        assertEquals(octalToDecimal.convertToDecimal("0"), 0);
-    }
+import org.junit.jupiter.api.Test;
 
-    public void testOneOctal() {
-        OctalToDecimal octalToDecimal = new OctalToDecimal();
-        assertEquals(octalToDecimal.convertToDecimal("1"), 1);
-    }
+public class OctalToDecimalTest {
 
-    public void testFiveOctal() {
-        OctalToDecimal octalToDecimal = new OctalToDecimal();
-        assertEquals(octalToDecimal.convertToDecimal("5"), 5);
-    }
+  @Test
+  void testZeroOctal() {
+    OctalToDecimal octalToDecimal = new OctalToDecimal();
+    assertEquals(0, octalToDecimal.convertToDecimal("0"));
+  }
 
-    public void test17Octal() {
-        OctalToDecimal octalToDecimal = new OctalToDecimal();
-        assertEquals(octalToDecimal.convertToDecimal("17"), 15);
-    }
+  @Test
+  void testOneOctal() {
+    OctalToDecimal octalToDecimal = new OctalToDecimal();
+    assertEquals(1, octalToDecimal.convertToDecimal("1"));
+  }
 
-    public void test72625Octal() {
-        OctalToDecimal octalToDecimal = new OctalToDecimal();
-        assertEquals(octalToDecimal.convertToDecimal("72625"), 30101);
-    }
+  @Test
+  void testFiveOctal() {
+    OctalToDecimal octalToDecimal = new OctalToDecimal();
+    assertEquals(5, octalToDecimal.convertToDecimal("5"));
+  }
 
-    public void test55142Octal() {
-        OctalToDecimal octalToDecimal = new OctalToDecimal();
-        assertEquals(octalToDecimal.convertToDecimal("55142"), 23138);
-    }
+  @Test
+  void test17Octal() {
+    OctalToDecimal octalToDecimal = new OctalToDecimal();
+    assertEquals(15, octalToDecimal.convertToDecimal("17"));
+  }
+
+  @Test
+  void test72625Octal() {
+    OctalToDecimal octalToDecimal = new OctalToDecimal();
+    assertEquals(30101, octalToDecimal.convertToDecimal("72625"));
+  }
+
+  @Test
+  void test55142Octal() {
+    OctalToDecimal octalToDecimal = new OctalToDecimal();
+    assertEquals(octalToDecimal.convertToDecimal("55142"), 23138);
+  }
 }

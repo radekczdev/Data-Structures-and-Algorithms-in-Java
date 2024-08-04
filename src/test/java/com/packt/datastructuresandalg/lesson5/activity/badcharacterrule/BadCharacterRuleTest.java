@@ -1,34 +1,42 @@
 package com.packt.datastructuresandalg.lesson5.activity.badcharacterrule;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class BadCharacterRuleTest extends TestCase {
+public class BadCharacterRuleTest {
+
     BadCharacterRule bcr = new BadCharacterRule();
 
+    @Test
     public void test1() {
-        assertTrue(bcr.match("abc", "abc").equals(Arrays.asList(0)));
+        Assertions.assertEquals(Arrays.asList(0), bcr.match("abc", "abc"));
     }
 
+    @Test
     public void test2() {
-        assertTrue(bcr.match("abd", "abc").equals(new ArrayList<>()));
+        Assertions.assertEquals(new ArrayList<>(), bcr.match("abd", "abc"));
     }
 
+    @Test
     public void test3() {
-        assertTrue(bcr.match("abcde", "abc").equals(new ArrayList<>()));
+        Assertions.assertEquals(new ArrayList<>(), bcr.match("abcde", "abc"));
     }
 
+    @Test
     public void test4() {
-        assertTrue(bcr.match("aab", "acaabc").equals(Arrays.asList(2)));
+        Assertions.assertEquals(Arrays.asList(2), bcr.match("aab", "acaabc"));
     }
 
+    @Test
     public void test5() {
-        assertTrue(bcr.match("aab", "acaabcaab").equals(Arrays.asList(2, 6)));
+        Assertions.assertEquals(Arrays.asList(2, 6), bcr.match("aab", "acaabcaab"));
     }
 
+    @Test
     public void test6() {
-        assertTrue(bcr.match("rabrabracad", "abacadabrabracabracadabrabrabracad").equals(Arrays.asList(23)));
+        Assertions.assertEquals(Arrays.asList(23), bcr.match("rabrabracad", "abacadabrabracabracadabrabrabracad"));
     }
 }

@@ -1,30 +1,37 @@
 package com.packt.datastructuresandalg.lesson5.activity.naivestringmatching;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class NaiveStringMatchingTest extends TestCase {
+public class NaiveStringMatchingTest {
+
     NaiveStringMatching nsm = new NaiveStringMatching();
 
+    @Test
     public void test1() {
-        assertTrue(nsm.match("abc", "abc").equals(Arrays.asList(0)));
+        Assertions.assertEquals(Arrays.asList(0), nsm.match("abc", "abc"));
     }
 
+    @Test
     public void test2() {
-        assertTrue(nsm.match("abd", "abc").equals(new ArrayList<>()));
+        Assertions.assertEquals(new ArrayList<>(), nsm.match("abd", "abc"));
     }
 
+    @Test
     public void test3() {
-        assertTrue(nsm.match("abcde", "abc").equals(new ArrayList<>()));
+        Assertions.assertEquals(new ArrayList<>(), nsm.match("abcde", "abc"));
     }
 
+    @Test
     public void test4() {
-        assertTrue(nsm.match("aab", "acaabc").equals(Arrays.asList(2)));
+        Assertions.assertEquals(Arrays.asList(2), nsm.match("aab", "acaabc"));
     }
 
+    @Test
     public void test5() {
-        assertTrue(nsm.match("aab", "acaabcaab").equals(Arrays.asList(2, 6)));
+        Assertions.assertEquals(Arrays.asList(2, 6), nsm.match("aab", "acaabcaab"));
     }
 }

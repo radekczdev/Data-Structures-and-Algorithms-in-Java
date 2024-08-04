@@ -1,10 +1,13 @@
 package com.packt.datastructuresandalg.setup;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
 
-public class HelloWorldTest extends TestCase {
+public class HelloWorldTest {
+
+    @Test
     public void testHelloWorld() {
         HelloWorld helloWorld = new HelloWorld();
-        assertEquals(helloWorld.seyHello(), "Hello World!");
+        Assertions.assertEquals("Hello World!", helloWorld.seyHello());
     }
 }

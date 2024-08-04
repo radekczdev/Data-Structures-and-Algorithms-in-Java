@@ -1,15 +1,17 @@
 package com.packt.datastructuresandalg.lesson1.activity.improveintersection;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
-public class IntersectionTest extends TestCase {
+public class IntersectionTest {
     Intersection interstection = new Intersection();
 
-    public void testInterstection() {
+    @Test
+    void testInterstection() {
         int[] numbers1 = new int[]{66, 24, 75, 22, 12, 87};
         int[] numbers2 = new int[]{32, 41, 98, 66, 39, 24};
 
@@ -20,7 +22,8 @@ public class IntersectionTest extends TestCase {
         assertEquals(new HashSet<>(expected), new HashSet<>(result));
     }
 
-    public void testFullInterstection() {
+    @Test
+    void testFullInterstection() {
         int[] numbers1 = new int[]{66, 24, 75, 22, 12, 87};
         int[] numbers2 = new int[]{66, 24, 75, 22, 12, 87};
 
@@ -31,7 +34,8 @@ public class IntersectionTest extends TestCase {
         assertEquals(new HashSet<>(expected), new HashSet<>(result));
     }
 
-    public void testEqualInterstection() {
+    @Test
+    void testEqualInterstection() {
         int[] numbers1 = new int[]{2, 2, 2, 2};
         int[] numbers2 = new int[]{2, 2, 2, 2};
 
@@ -42,7 +46,8 @@ public class IntersectionTest extends TestCase {
         assertEquals(expected, result);
     }
 
-    public void testEmptyInterstection() {
+    @Test
+    void testEmptyInterstection() {
         int[] numbers1 = new int[]{2, 4, 1, 3, 5};
         int[] numbers2 = new int[]{7, 6, 9, 0, 8};
 
@@ -52,5 +57,4 @@ public class IntersectionTest extends TestCase {
 
         assertEquals(expected, result);
     }
-
 }

@@ -1,35 +1,43 @@
 package com.packt.datastructuresandalg.lesson5.activity.boyermoore;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class BoyerMooreTest extends TestCase {
+public class BoyerMooreTest {
+
     BoyerMoore bm = new BoyerMoore();
 
+    @Test
     public void test1() {
-        assertTrue(bm.match("abc", "abc").equals(Arrays.asList(0)));
+        Assertions.assertEquals(Arrays.asList(0), bm.match("abc", "abc"));
     }
 
+    @Test
     public void test2() {
-        assertTrue(bm.match("abd", "abc").equals(new ArrayList<>()));
+        Assertions.assertEquals(new ArrayList<>(), bm.match("abd", "abc"));
     }
 
+    @Test
     public void test3() {
-        assertTrue(bm.match("abcde", "abc").equals(new ArrayList<>()));
+        Assertions.assertEquals(new ArrayList<>(), bm.match("abcde", "abc"));
     }
 
+    @Test
     public void test4() {
-        assertTrue(bm.match("aab", "acaabc").equals(Arrays.asList(2)));
+        Assertions.assertEquals(Arrays.asList(2), bm.match("aab", "acaabc"));
     }
 
+    @Test
     public void test5() {
-        assertTrue(bm.match("aab", "acaabcaab").equals(Arrays.asList(2, 6)));
+        Assertions.assertEquals(Arrays.asList(2, 6), bm.match("aab", "acaabcaab"));
     }
 
+    @Test
     public void test6() {
-        assertTrue(bm.match("rabrabracad", "abacadabrabracabracadabrabrabracad").equals(Arrays.asList(23)));
+        Assertions.assertEquals(Arrays.asList(23), bm.match("rabrabracad", "abacadabrabracabracadabrabrabracad"));
     }
 
 }

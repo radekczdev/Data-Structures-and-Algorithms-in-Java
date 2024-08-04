@@ -1,24 +1,29 @@
 package com.packt.datastructuresandalg.lesson3.activity.openaddressing;
 
 import com.packt.datastructuresandalg.lesson3.hashtable.RemainderHashing;
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 
-public class OpenAddrHashTableTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-    public void testEmptyHashTable() {
+public class OpenAddrHashTableTest {
+
+    @Test
+    void testEmptyHashTable() {
         OpenAddrHashTable<Integer, String> hashTable = new OpenAddrHashTable<>(10, new RemainderHashing());
         assertEquals(Optional.empty(), hashTable.get(123));
     }
 
-    public void testItemExistHashTable() {
+    @Test
+    void testItemExistHashTable() {
         OpenAddrHashTable<Integer, String> hashTable = new OpenAddrHashTable<>(10, new RemainderHashing());
         hashTable.put(5, "Test");
         assertEquals(Optional.of("Test"), hashTable.get(5));
     }
 
-    public void testItemExistAfterCollisionHashTable() {
+    @Test
+    void testItemExistAfterCollisionHashTable() {
         OpenAddrHashTable<Integer, String> hashTable = new OpenAddrHashTable<>(10, new RemainderHashing());
         hashTable.put(5, "Test1");
         hashTable.put(15, "Test2");
@@ -26,7 +31,8 @@ public class OpenAddrHashTableTest extends TestCase {
         assertEquals(Optional.of("Test2"), hashTable.get(15));
     }
 
-    public void testItemOnOccupiedSlotHashTable() {
+    @Test
+    void testItemOnOccupiedSlotHashTable() {
         OpenAddrHashTable<Integer, String> hashTable = new OpenAddrHashTable<>(10, new RemainderHashing());
         hashTable.put(5, "Test5");
         hashTable.put(15, "Test15");
@@ -34,7 +40,8 @@ public class OpenAddrHashTableTest extends TestCase {
         assertEquals(Optional.of("Test6"), hashTable.get(6));
     }
 
-    public void testGetItemAfterRemove() {
+    @Test
+    void testGetItemAfterRemove() {
         OpenAddrHashTable<Integer, String> hashTable = new OpenAddrHashTable<>(10, new RemainderHashing());
         hashTable.put(5, "Test5");
         hashTable.put(15, "Test15");
@@ -43,7 +50,8 @@ public class OpenAddrHashTableTest extends TestCase {
         assertEquals(Optional.empty(), hashTable.get(6));
     }
 
-    public void testInsertItemAfterRemove() {
+    @Test
+    void testInsertItemAfterRemove() {
         OpenAddrHashTable<Integer, String> hashTable = new OpenAddrHashTable<>(10, new RemainderHashing());
         hashTable.put(5, "Test5");
         hashTable.put(15, "Test15");
@@ -53,8 +61,8 @@ public class OpenAddrHashTableTest extends TestCase {
         assertEquals(Optional.of("Test25"), hashTable.get(25));
     }
 
-
-    public void testItemWrapsAroundHashTable() {
+    @Test
+    void testItemWrapsAroundHashTable() {
         OpenAddrHashTable<Integer, String> hashTable = new OpenAddrHashTable<>(10, new RemainderHashing());
         hashTable.put(8, "Test8");
         hashTable.put(18, "Test18");
@@ -75,7 +83,8 @@ public class OpenAddrHashTableTest extends TestCase {
         assertEquals(Optional.empty(), hashTable.get(58));
     }
 
-    public void testRemoveItemWrapsAroundHashTable() {
+    @Test
+    void testRemoveItemWrapsAroundHashTable() {
         OpenAddrHashTable<Integer, String> hashTable = new OpenAddrHashTable<>(10, new RemainderHashing());
         hashTable.put(8, "Test8");
         hashTable.put(18, "Test18");
@@ -92,8 +101,8 @@ public class OpenAddrHashTableTest extends TestCase {
         assertEquals(Optional.of("Test58"), hashTable.get(58));
     }
 
-
-    public void testSearchItemOnFullHashTable() {
+    @Test
+    void testSearchItemOnFullHashTable() {
         OpenAddrHashTable<Integer, String> hashTable = new OpenAddrHashTable<>(10, new RemainderHashing());
         hashTable.put(2, "Test2");
         hashTable.put(12, "Test12");
@@ -108,7 +117,8 @@ public class OpenAddrHashTableTest extends TestCase {
         assertEquals(Optional.empty(), hashTable.get(102));
     }
 
-    public void testPutItemOnFullHashTable() {
+    @Test
+    void testPutItemOnFullHashTable() {
         OpenAddrHashTable<Integer, String> hashTable = new OpenAddrHashTable<>(10, new RemainderHashing());
         hashTable.put(1, "Test1");
         hashTable.put(11, "Test11");
@@ -124,7 +134,4 @@ public class OpenAddrHashTableTest extends TestCase {
         assertEquals(Optional.empty(), hashTable.get(101));
         assertEquals(Optional.of("Test1"), hashTable.get(1));
     }
-
-
-
 }

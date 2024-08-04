@@ -1,20 +1,23 @@
 package com.packt.datastructuresandalg.lesson6.activity.maze;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
 
-public class MazeTest extends TestCase {
+public class MazeTest {
+
+    @Test
     public void test1() {
         Maze m = new Maze(new String[]{
-                "####.##",
-                "#....##",
-                "#.#.#.#",
-                "#.#...#",
-                "#.###.#",
-                "#.....#",
-                "#######"
+            "####.##",
+            "#....##",
+            "#.#.#.#",
+            "#.#...#",
+            "#.###.#",
+            "#.....#",
+            "#######"
         });
-        assertTrue(m.distToExit(1, 1) == 4);
-        assertTrue(m.distToExit(5, 1) == 8);
-        assertTrue(m.distToExit(2, 5) == 7);
+        Assertions.assertEquals(4, m.distToExit(1, 1));
+        Assertions.assertEquals(8, m.distToExit(5, 1));
+        Assertions.assertEquals(7, m.distToExit(2, 5));
     }
 }

@@ -1,28 +1,33 @@
 package com.packt.datastructuresandalg.lesson2.activity.postfix;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class EvalPostfixTest extends TestCase {
+public class EvalPostfixTest {
     private EvalPostfix evalPostfix = new EvalPostfix();
 
-    public void testEvalSimpleAddition() {
+    @Test
+    void testEvalSimpleAddition() {
         assertEquals(3.0, evalPostfix.evaluate("1 2 +"));
     }
 
-    public void testEvalMultipleOperands() {
+    @Test
+    void testEvalMultipleOperands() {
         assertEquals(7.0, evalPostfix.evaluate("1 2 3 * +"));
     }
 
-    public void testEvalPlusPrecedence() {
+    @Test
+    void testEvalPlusPrecedence() {
         assertEquals(9.0, evalPostfix.evaluate("1 2 + 3 *"));
     }
 
-    public void testEvalDiv() {
+    @Test
+    void testEvalDiv() {
         assertEquals(11.0, evalPostfix.evaluate("5 4 2 / 3 * +"));
     }
 
-    public void testEdgeCaseNumber() {
+    @Test
+    void testEdgeCaseNumber() {
         assertEquals(9.0, evalPostfix.evaluate("9"));
     }
-
 }

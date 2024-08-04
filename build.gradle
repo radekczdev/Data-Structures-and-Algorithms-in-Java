@@ -1,19 +1,27 @@
+plugins {
+    id 'java'
+}
+
 group 'com.packt'
 version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
-
-sourceCompatibility = 1.8
+sourceCompatibility = '17'
+targetCompatibility = '17'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.3'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.3'
+}
+
+test {
+    useJUnitPlatform()
 }
 
 task execute(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
-    main = project.hasProperty("mainClass") ? project.getProperty("mainClass") : "com.packt.datastructuresandalg.lesson1.activity.improveintersection.Intersection"
+    mainClass.set(project.hasProperty("mainClass") ? project.property("mainClass").toString() : "com.packt.datastructuresandalg.lesson1.activity.improveintersection.Intersection")
 }
