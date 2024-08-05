@@ -6,11 +6,22 @@ public class BinarySearch {
         int start = 0;
         while (start <= end) {
             int mid = (end - start) / 2 + start;
+            printArrayWithHighlights(sortedNumbers, start, mid, end);
             if (sortedNumbers[mid] == x) return true;
             else if (sortedNumbers[mid] > x) end = mid - 1;
             else start = mid + 1;
         }
         return false;
+    }
+
+    private void printArrayWithHighlights(int[] array, int start, int mid, int end) {
+        for (int i = 0; i < array.length; i++) {
+            if (i == start) System.out.print("[S]");
+            if (i == mid) System.out.print("[M]");
+            if (i == end) System.out.print("[E]");
+            System.out.print(array[i] + " ");
+        }
+        System.out.println();
     }
 
     public static void main(String args[]) {
