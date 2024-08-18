@@ -12,6 +12,11 @@ public class EvalPostfixTest {
     }
 
     @Test
+    void testEvalTwoDigitsNumberAddition() {
+        assertEquals(13.0, evalPostfix.evaluate("11 2 +"));
+    }
+
+    @Test
     void testEvalMultipleOperands() {
         assertEquals(7.0, evalPostfix.evaluate("1 2 3 * +"));
     }
