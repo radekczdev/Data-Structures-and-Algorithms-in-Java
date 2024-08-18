@@ -47,4 +47,11 @@ public class MergeSortTest {
         sort.mergeSort(numbers);
         assertArrayEquals(new int[]{8}, numbers);
     }
+
+    @Test
+    void testElement() {
+        int[] numbers = new int[]{5,8,6,4};
+        sort.mergeSort(numbers);
+        assertArrayEquals(new int[]{4,5,6,8}, numbers);
+    }
 }
